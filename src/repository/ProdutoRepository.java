@@ -1,0 +1,17 @@
+package com.seuprojeto.desafio.repository;
+
+import com.seuprojeto.desafio.entity.Produto;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
+
+    @Query(value = "SELECT * FROM produto WHERE descricao LIKE %:descricao%", nativeQuery = true)
+    List<Produto> buscarPorDescricao(@Param("descricao") String descricao);
+
+    @Query(value = "SELECT * FROM produto WHERE id = :id", nativeQuery = true)
+    Optional<Produto> buscarPorId(@Param("id") Long id);
+}
