@@ -39,12 +39,4 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     // Buscar por id
     @Query(value = "SELECT * FROM pedido WHERE id = :id", nativeQuery = true)
     Pedido buscarPorId(@Param("id") Long id);
-
-    @Query("""
-       SELECT SUM((i.valor * i.quantidade) - i.desconto)
-       FROM Pedido p
-       JOIN p.itens i
-       WHERE p.cliente.id = :clienteId
-       """)
-    BigDecimal calcularTotalPorCliente(@Param("clienteId") Long clienteId);
 }

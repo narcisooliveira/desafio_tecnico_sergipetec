@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -110,7 +111,7 @@ public class PedidoService {
     }
 
     @Transactional
-    public BigDecimal totalPorCliente(Long clienteId) {
-        return pedidoRepository.calcularTotalPorCliente(clienteId);
+    public Optional<Double> totalPorCliente(Long clienteId) {
+        return itemPedidoRepository.calcularTotalPedidosPorCliente(clienteId);
     }
 }
