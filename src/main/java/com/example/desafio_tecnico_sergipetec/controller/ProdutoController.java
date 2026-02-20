@@ -3,6 +3,7 @@ package com.example.desafio_tecnico_sergipetec.controller;
 import com.example.desafio_tecnico_sergipetec.dto.request.ProdutoRequestDTO;
 import com.example.desafio_tecnico_sergipetec.dto.response.ProdutoResponseDTO;
 import com.example.desafio_tecnico_sergipetec.service.ProdutoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Produto", description = "Operações relacionadas a produto")
 @RestController
-@RequestMapping("/api/v1/produtos")
+@RequestMapping("/api/v1/produto")
 @RequiredArgsConstructor
 public class ProdutoController {
 
@@ -19,9 +21,9 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<ProdutoResponseDTO> criar(
-            @RequestBody @Valid ProdutoRequestDTO dto) {
+            @RequestBody @Valid ProdutoRequestDTO produtoDto) {
 
-        return ResponseEntity.ok(produtoService.criarProduto(dto));
+        return ResponseEntity.ok(produtoService.criarProduto(produtoDto));
     }
 
     @GetMapping

@@ -3,6 +3,7 @@ package com.example.desafio_tecnico_sergipetec.controller;
 import com.example.desafio_tecnico_sergipetec.dto.request.PedidoRequestDTO;
 import com.example.desafio_tecnico_sergipetec.dto.response.PedidoResponseDTO;
 import com.example.desafio_tecnico_sergipetec.service.PedidoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +13,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Tag(name = "Pedido", description = "Operações relacionadas a pedido")
 @RestController
-@RequestMapping("/api/v1/pedidos")
+@RequestMapping("/api/v1/pedido")
 @RequiredArgsConstructor
 public class PedidoController {
 
@@ -21,9 +23,9 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<PedidoResponseDTO> criar(
-            @RequestBody @Valid PedidoRequestDTO dto) {
+            @RequestBody @Valid PedidoRequestDTO pedidoDto) {
 
-        return ResponseEntity.ok(pedidoService.criarPedido(dto));
+        return ResponseEntity.ok(pedidoService.criarPedido(pedidoDto));
     }
 
     @GetMapping("/cliente/{clienteId}")
