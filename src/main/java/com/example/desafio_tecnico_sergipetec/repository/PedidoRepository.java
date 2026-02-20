@@ -1,9 +1,10 @@
-package com.seuprojeto.desafio.repository;
+package com.example.desafio_tecnico_sergipetec.repository;
 
-import com.seuprojeto.desafio.entity.Pedido;
+import com.example.desafio_tecnico_sergipetec.entity.Pedido;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,4 +39,12 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     // Buscar por id
     @Query(value = "SELECT * FROM pedido WHERE id = :id", nativeQuery = true)
     Pedido buscarPorId(@Param("id") Long id);
+
+    @Query("""
+       SELECT SUM((i.valor * i.quantidade) - i.desconto)
+       FROM Pedido p
+       JOIN p.itens i
+       WHERE p.cliente.id = :clienteId
+       """)
+    BigDecimal calcularTotalPorCliente(@Param("clienteId") Long clienteId);
 }

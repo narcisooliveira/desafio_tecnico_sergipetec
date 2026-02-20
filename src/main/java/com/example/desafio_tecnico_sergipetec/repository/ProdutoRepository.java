@@ -1,6 +1,6 @@
-package com.seuprojeto.desafio.repository;
+package com.example.desafio_tecnico_sergipetec.repository;
 
-import com.seuprojeto.desafio.entity.Produto;
+import com.example.desafio_tecnico_sergipetec.entity.Produto;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 

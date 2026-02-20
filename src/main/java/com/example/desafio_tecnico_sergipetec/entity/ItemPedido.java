@@ -1,4 +1,4 @@
-package com.seuprojeto.desafio.entity;
+package com.example.desafio_tecnico_sergipetec.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
