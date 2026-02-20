@@ -4,7 +4,6 @@ import com.example.desafio_tecnico_sergipetec.entity.Pedido;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
