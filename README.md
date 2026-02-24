@@ -51,3 +51,32 @@ O Swagger permite:
  📌 Testar requisições diretamente pelo navegador  
  📌 Consultar modelos de request e response  
  📌 Facilitar a integração com outros sistemas  
+
+ # 🚀 Como Executar o Projeto
+
+## 🔹 Pré-requisitos
+
+Antes de iniciar, certifique-se de possuir instalado:
+
+- Java 17 ou superior  
+- Maven 3.8+  
+- MySQL 8+  
+
+---
+
+## 🔹 1. Criar o Banco de Dados
+- Crie um banco no MySQL: Através no arquivo **`schema.sql`**
+
+## 🔹 2. Configurar o application.properties
+
+## 🔹 3. Compilar o Projeto
+
+- a raiz do projeto, execute: mvn clean install
+
+## 🔹 4. Executar a Aplicação
+
+- mvn spring-boot:run
+
+## 🔹 5. Acessar a Documentação (Swagger)
+
+- http://localhost:8080/swagger-ui/index.html
